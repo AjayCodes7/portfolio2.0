@@ -8,7 +8,7 @@ function PageHeader({
   return (
     <section className={cn("", className)} {...props}>
       <div className="">
-        <div className="flex flex-col items-start gap-1 py-0">{children}</div>
+        <div className="flex flex-col items-start gap-1 py-0 lg:px-10">{children}</div>
       </div>
     </section>
   );
@@ -21,7 +21,7 @@ function PageHeaderHeading({
   return (
     <h1
       className={cn(
-        "text-2xl font-bold leading-tight tracking-tighter sm:text-3xl md:text-4xl lg:leading-[1.1]",
+        "text-4xl font-bold leading-tight tracking-tighter sm:text-3xl md:text-4xl lg:leading-[1.1]",
         className
       )}
       {...props}

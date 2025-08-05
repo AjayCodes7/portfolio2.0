@@ -32,7 +32,7 @@ export function MainNav() {
           Home
         </Link>
 
-        <Link
+        {/* <Link
           target="_blank"
           href="https://blog.abhishekg.com.np"
           className={cn(
@@ -43,7 +43,7 @@ export function MainNav() {
           )}
         >
           Blog <ExternalLink className="size-3" />
-        </Link>
+        </Link> */}
 
         <Link
           href={siteConfig.links.resume}

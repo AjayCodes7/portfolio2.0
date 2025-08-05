@@ -61,7 +61,7 @@ export function MobileNav() {
         <DrawerContent className="max-h-[80svh] p-0">
           <div className="p-6 overflow-auto">
             <div className="flex items-center justify-between gap-2 my-6">
-              <h4 className="text-xl font-medium">Abhishek Ghimire</h4>
+              <h4 className="text-xl font-medium">Ajay Kommana</h4>
               <div className="flex items-center justify-center gap-4">
                 <ModeSwitcher className="size-6" />
                 <Link
@@ -145,6 +145,31 @@ interface MobileLinkProps extends LinkProps {
   className?: string;
 }
 
+// function MobileLink({
+//   href,
+//   onOpenChange,
+//   className,
+//   children,
+//   ...props
+// }: MobileLinkProps) {
+//   const router = useRouter();
+//   return (
+//     <Link
+//       href={href}
+//       onClick={() => {
+//         router.push(href.toString());
+//         onOpenChange?.(false);
+//       }}
+//       className={cn("text-[1.15rem] border-b border-border pb-2", className)}
+//       {...props}
+//     >
+//       {children}
+//     </Link>
+//   );
+// }
+
+
+
 function MobileLink({
   href,
   onOpenChange,
@@ -153,13 +178,30 @@ function MobileLink({
   ...props
 }: MobileLinkProps) {
   const router = useRouter();
+
+  const handleClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    const hrefString =
+      typeof href === "string" ? href : href.pathname || "";
+
+    if (hrefString.startsWith("#")) {
+      e.preventDefault();
+      const id = hrefString.replace("#", "");
+      const section = document.getElementById(id);
+      if (section) {
+        section.scrollIntoView({ behavior: "smooth", block: "start" });
+      }
+      window.history.pushState(null, "", hrefString); // Update URL without full navigation
+      onOpenChange?.(false);
+    } else {
+      router.push(hrefString); // Pass only a string
+      onOpenChange?.(false);
+    }
+  };
+
   return (
     <Link
       href={href}
-      onClick={() => {
-        router.push(href.toString());
-        onOpenChange?.(false);
-      }}
+      onClick={handleClick}
       className={cn("text-[1.15rem] border-b border-border pb-2", className)}
       {...props}
     >

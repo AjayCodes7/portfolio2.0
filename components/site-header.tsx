@@ -20,6 +20,7 @@ export function SiteHeader() {
               <CommandMenu />
             </div>
             <nav className="flex items-center gap-0.5">
+              {/* github Link  */}
               <Button
                 asChild
                 variant="ghost"
@@ -35,7 +36,10 @@ export function SiteHeader() {
                   <span className="sr-only">GitHub</span>
                 </Link>
               </Button>
-              <ModeSwitcher />
+
+
+              {/* Theme Changer */}
+              <ModeSwitcher /> 
             </nav>
           </div>
         </div>

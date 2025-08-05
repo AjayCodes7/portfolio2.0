@@ -34,10 +34,11 @@ export async function SiteFooter() {
               href={siteConfig.links.githubProfile}
               target="_blank"
               rel="noreferrer"
-              className="font-medium transition-colors text-primary hover:text-primary/80"
+              className="font-medium transition-colors text-foreground hover:text-foreground/80"
             >
-              Abhishek Ghimire
-            </Link>{" "}
+              Ajay Kommana
+            </Link>
+            {/* {" "}
             · Source code available on{" "}
             <Link
               href={siteConfig.links.github}
@@ -46,7 +47,7 @@ export async function SiteFooter() {
               className="font-medium transition-colors text-primary hover:text-primary/80"
             >
               GitHub
-            </Link>
+            </Link> */}
           </div>
         </div>
       </div>

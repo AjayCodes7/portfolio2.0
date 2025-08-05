@@ -1,64 +1,79 @@
 export const docsConfig = {
-  mainNav: [
-    {
-      title: "Home",
-      href: "/",
-    },
-    {
-      title: "Blog",
-      href: "https://blog.abhishekg.com.np",
-    },
-  ],
-  sidebarNav: [
-    {
-      title: "Sections",
-      items: [
+    mainNav: [
         {
-          title: "Introduction",
-          href: "/",
-          items: [],
-        },
-        {
-          title: "About Me",
-          href: "/about",
-          items: [],
-        },
-        {
-          title: "Projects",
-          href: "/projects",
-          items: [],
-        },
-        {
-          title: "Skills & Tools",
-          href: "/skills-tools",
-          items: [],
-        },
-        {
-          title: "Experience",
-          href: "/experience",
-          items: [],
-        },
-        {
-          title: "Education",
-          href: "/education",
-          items: [],
+            title: 'Home',
+            href: '/',
         },
         // {
-        //   title: "Testimonials",
-        //   href: "/testimonials",
-        //   items: [],
+        //   title: "Blog",
+        //   href: "https://iamajay.tech",
         // },
+    ],
+    // sidebarNav: [
+    //   {
+    //     title: "Sections",
+    //     items: [
+    //       {
+    //         title: "Introduction",
+    //         href: "/",
+    //         items: [],
+    //       },
+    //       {
+    //         title: "About Me",
+    //         href: "/about",
+    //         items: [],
+    //       },
+    //       {
+    //         title: "Projects",
+    //         href: "/projects",
+    //         items: [],
+    //       },
+    //       {
+    //         title: "Skills & Tools",
+    //         href: "/skills-tools",
+    //         items: [],
+    //       },
+    //       {
+    //         title: "Experience",
+    //         href: "/experience",
+    //         items: [],
+    //       },
+    //       {
+    //         title: "Education",
+    //         href: "/education",
+    //         items: [],
+    //       },
+    //       // {
+    //       //   title: "Testimonials",
+    //       //   href: "/testimonials",
+    //       //   items: [],
+    //       // },
+    //       {
+    //         title: "Contact",
+    //         href: "/contact",
+    //         items: [],
+    //       },
+    //       {
+    //         title: "Stats",
+    //         href: "/stats",
+    //         items: [],
+    //       },
+    //     ],
+    //   },
+    // ],
+    sidebarNav: [
         {
-          title: "Contact",
-          href: "/contact",
-          items: [],
+            title: 'Sections',
+            items: [
+                { title: 'Introduction', href: '#introduction' },
+                // { title: "About Me", href: "#about-me" },
+                { title: 'Projects', href: '#projects' },
+                { title: 'Skills & Tools', href: '#skills-tools' },
+                { title: 'Experience', href: '#experience' },
+                { title: 'Education', href: '#education' },
+                { title: 'Contact', href: '#contact' },
+                { title: 'Stats', href: '#stats' },
+            ],
         },
-        {
-          title: "Stats",
-          href: "/stats",
-          items: [],
-        },
-      ],
-    },
-  ],
-};
+    ],
+}

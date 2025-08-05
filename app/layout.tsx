@@ -1,5 +1,3 @@
-import { Geist, Geist_Mono } from 'next/font/google'
-
 import { ThemeProvider } from '@/components/theme-provider'
 import { META_THEME_COLORS, siteConfig } from '@/config/site'
 import { Analytics } from '@vercel/analytics/next'
@@ -11,21 +9,8 @@ import { SiteHeader } from '@/components/site-header'
 import { SideNav } from '@/components/side-nav'
 import { SiteFooter } from '@/components/site-footer'
 import { docsConfig } from '@/config/docs'
-import { setViewsServerAction } from './actions/getAndSetViewsServerAction'
-import { getLoveCountServerAction } from './actions/getAndSetLoveCountServerAction'
 import { SpeedInsights } from '@vercel/speed-insights/next'
 import './globals.css'
-
-const geistSans = Geist({
-    variable: '--font-geist-sans',
-    subsets: ['latin'],
-})
-
-const geistMono = Geist_Mono({
-    variable: '--font-geist-mono',
-    subsets: ['latin'],
-})
-
 
 export const metadata: Metadata = {
     title: siteConfig.name,
@@ -75,9 +60,9 @@ export const metadata: Metadata = {
         creator: '@ajaycodes7',
     },
     icons: {
-        icon: '/favicon.ico',
-        shortcut: '/favicon-16x16.png',
-        apple: '/apple-touch-icon.png',
+        icon: '/text.svg',
+        shortcut: '/text.svg',
+        apple: '/text.svg',
     },
     manifest: `${siteConfig.url}/site.webmanifest`,
 }
@@ -90,18 +75,7 @@ interface RootLayoutProps {
     children: React.ReactNode
 }
 
-async function loadStats() {
-    try {
-        await setViewsServerAction()
-        await getLoveCountServerAction()
-    } catch (error) {
-        console.error('Failed to load stats:', error)
-        return
-    }
-}
-
 export default async function RootLayout({ children }: RootLayoutProps) {
-    await loadStats()
     return (
         <>
             <html lang="en" suppressHydrationWarning>
@@ -109,12 +83,12 @@ export default async function RootLayout({ children }: RootLayoutProps) {
                     <script
                         dangerouslySetInnerHTML={{
                             __html: `
-              try {
-                if (localStorage.theme === 'dark' || ((!('theme' in localStorage) || localStorage.theme === 'system') && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-                  document.querySelector('meta[name="theme-color"]').setAttribute('content', '${META_THEME_COLORS.dark}')
-                }
-              } catch (_) {}
-            `,
+                                    try {
+                                        if (localStorage.theme === 'dark' || ((!('theme' in localStorage) || localStorage.theme === 'system') && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+                                        document.querySelector('meta[name="theme-color"]').setAttribute('content', '${META_THEME_COLORS.dark}')
+                                        }
+                                    } catch (_) {}
+                                    `,
                         }}
                     />
                 </head>
@@ -155,7 +129,7 @@ export default async function RootLayout({ children }: RootLayoutProps) {
                             </div>
                         </div>
                     </ThemeProvider>
-                    <Toaster richColors position="top-center" />
+                    <Toaster position="top-center" />
                     {/* <GoogleAnalytics
             gaId={process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS_ID || ""}
           /> */}

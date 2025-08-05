@@ -1,83 +1,81 @@
-"use client";
+'use client'
 
-import Link from "next/link";
-import { usePathname } from "next/navigation";
-import { cn } from "@/lib/utils";
+import { useEffect, useState } from 'react'
+import { cn } from '@/lib/utils'
 
 export function SideNav({ config }: any) {
-  const pathname = usePathname();
+    const [activeSection, setActiveSection] = useState<string | null>(null)
+    const items = config.sidebarNav
 
-  const items = config.sidebarNav;
+    useEffect(() => {
+        const sectionIds: string[] = items.flatMap((group: any) =>
+            group.items.map((item: any) => item.href.replace('#', ''))
+        )
 
-  return items.length ? (
-    <div className="flex flex-col gap-6">
-      {items.map((item: any, index: any) => (
-        <div key={index} className="flex flex-col gap-1">
-          <h4 className="rounded-md px-2 py-1 text-sm font-medium">
-            {item.title}{" "}
-            {item.label && (
-              <span className="ml-2 rounded-md bg-[#adfa1d] px-1.5 py-0.5 text-xs font-normal leading-none text-[#000000] no-underline group-hover:no-underline">
-                {item.label}
-              </span>
-            )}
-          </h4>
-          {item?.items?.length && (
-            <DocsNavItems items={item.items} pathname={pathname} />
-          )}
+        const sections: HTMLElement[] = sectionIds
+            .map((id: string) => document.getElementById(id))
+            .filter((el): el is HTMLElement => el !== null)
+
+        const observer = new IntersectionObserver(
+            (entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        setActiveSection(entry.target.id)
+                    }
+                })
+            },
+            { threshold: 0.6 }
+        )
+
+        sections.forEach((section) => observer.observe(section))
+
+        return () => {
+            sections.forEach((section) => observer.unobserve(section))
+        }
+    }, [items])
+
+    return items.length ? (
+        <div className="flex flex-col gap-6">
+            {items.map((group: any, index: number) => (
+                <div key={index} className="flex flex-col gap-1">
+                    <h4 className="rounded-md px-2 py-1 text-sm font-medium">{group.title}</h4>
+                    {group.items?.length && (
+                        <DocsNavItems items={group.items} activeSection={activeSection} />
+                    )}
+                </div>
+            ))}
         </div>
-      ))}
-    </div>
-  ) : null;
+    ) : null
 }
 
-function DocsNavItems({
-  items,
-  pathname,
-}: {
-  items: any;
-  pathname: string | null;
-}) {
-  return items?.length ? (
-    <div className="grid grid-flow-row auto-rows-max gap-0.5 text-sm">
-      {items.map((item: any, index: any) =>
-        item.href && !item.disabled ? (
-          <Link
-            key={index}
-            href={item.href}
-            className={cn(
-              "group relative flex h-8 w-full items-center rounded-lg px-2 after:absolute after:inset-x-0 after:inset-y-[-2px]  after:rounded-lg hover:bg-accent hover:text-accent-foreground ",
-              item.disabled && "cursor-not-allowed opacity-60",
-              pathname === item.href
-                ? "bg-accent font-medium text-accent-foreground"
-                : "font-normal text-foreground"
+function DocsNavItems({ items, activeSection }: { items: any; activeSection: string | null }) {
+    return (
+        <div className="grid grid-flow-row auto-rows-max gap-0.5 text-sm">
+            {items.map((item: any, index: number) =>
+                item.href ? (
+                    <a
+                        key={index}
+                        href={item.href}
+                        onClick={(e) => {
+                            e.preventDefault()
+                            const id = item.href.replace('#', '')
+                            const section = document.getElementById(id)
+                            if (section) {
+                                section.scrollIntoView({ behavior: 'smooth', block: 'start' })
+                            }
+                            window.history.pushState(null, '', item.href)
+                        }}
+                        className={cn(
+                            'group relative flex h-8 w-full items-center rounded-lg px-2 hover:bg-accent hover:text-accent-foreground',
+                            activeSection === item.href.replace('#', '')
+                                ? 'bg-accent font-medium text-accent-foreground'
+                                : 'font-normal text-foreground'
+                        )}
+                    >
+                        {item.title}
+                    </a>
+                ) : null
             )}
-            target={item.external ? "_blank" : ""}
-            rel={item.external ? "noreferrer" : ""}
-          >
-            {item.title}
-            {item.label && (
-              <span className="ml-2 rounded-md bg-[#adfa1d] px-1.5 py-0.5 text-xs leading-none text-[#000000] no-underline group-hover:no-underline">
-                {item.label}
-              </span>
-            )}
-          </Link>
-        ) : (
-          <span
-            key={index}
-            className={cn(
-              "flex w-full cursor-not-allowed items-center rounded-md p-2 text-muted-foreground hover:underline",
-              item.disabled && "cursor-not-allowed opacity-60"
-            )}
-          >
-            {item.title}
-            {item.label && (
-              <span className="ml-2 rounded-md bg-muted px-1.5 py-0.5 text-xs leading-none text-muted-foreground no-underline group-hover:no-underline">
-                {item.label}
-              </span>
-            )}
-          </span>
-        )
-      )}
-    </div>
-  ) : null;
+        </div>
+    )
 }
