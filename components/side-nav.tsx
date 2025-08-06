@@ -1,11 +1,13 @@
 'use client'
 
 import { useEffect, useState } from 'react'
+import { usePathname } from 'next/navigation'
 import { cn } from '@/lib/utils'
 
 export function SideNav({ config }: any) {
     const [activeSection, setActiveSection] = useState<string | null>(null)
     const items = config.sidebarNav
+    const pathname = usePathname() // track route changes
 
     useEffect(() => {
         const sectionIds: string[] = items.flatMap((group: any) =>
@@ -32,7 +34,7 @@ export function SideNav({ config }: any) {
         return () => {
             sections.forEach((section) => observer.unobserve(section))
         }
-    }, [items])
+    }, [items, pathname]) // re-run when route changes
 
     return items.length ? (
         <div className="flex flex-col gap-6">
