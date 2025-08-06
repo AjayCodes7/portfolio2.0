@@ -17,17 +17,17 @@ const Intro = () => {
         <>
             <PageHeader className="h-screen">
                 <PageHeaderHeading className="my-5 lg:pt-45">
-                    Hey, I'm Ajay Kommana 👋
+                    Hey, I&apos;m Ajay Kommana 👋
                 </PageHeaderHeading>
                 <PageHeaderHeading className="mt-2 text-muted-foreground">
                     Code is where I think, create, and thrive!
                 </PageHeaderHeading>
                 <PageHeaderDescription className="relative">
-                    I’m a fresh engineering graduate passionate about building innovative digital
-                    solutions. Skilled in Python and Java, I specialize in full-stack web
+                    I&apos;m a fresh engineering graduate passionate about building innovative
+                    digital solutions. Skilled in Python and Java, I specialize in full-stack web
                     development using React, Node.js, and modern databases, and also create
-                    cross-platform mobile apps with Flutter. I’m eager to kick-start my career and
-                    contribute to impactful projects.
+                    cross-platform mobile apps with Flutter. I&apos;m eager to kick-start my career
+                    and contribute to impactful projects.
                 </PageHeaderDescription>
                 <PageActions>
                     <Button asChild size="sm" variant="outline" className="rounded-md">
