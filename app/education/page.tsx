@@ -61,7 +61,7 @@ const EducationPage = () => {
                             </svg>
                         </span>
                         <h3 className="mb-1 text-lg font-semibold text-gray-900 dark:text-white">
-                            Sri Chaitanya Junior College · BSEAP · Visakhapatnam
+                            Sri Chaitanya Junior College · BIEAP · Visakhapatnam
                         </h3>
                         <time className="block mb-2 text-sm font-normal leading-none text-gray-400 dark:text-gray-500">
                             June. 2019 - July. 2021
