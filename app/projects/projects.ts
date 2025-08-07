@@ -6,7 +6,7 @@ import codpodium from './images/codpodium.png'
 import tempvisualizer from './images/tempvisualizer.png'
 export const projects = [
     {
-        image: tempvisualizer, // Replace with actual imported image or path
+        image: tempvisualizer,
         title: 'Polygon Climate Visualizer | Interactive Polygon Temperature Visualizer',
         slug: 'Polygon-Climate-Visualizer',
         tagline:
@@ -148,7 +148,7 @@ export const projects = [
             'Gained expertise in building role-based access systems.',
             'Improved understanding of integrating QR-based search and tracking.',
             'Learned effective collaboration and version control using Jira and Bitbucket.',
-            'Enhanced skills in designing mobile-first financial applications.',
+            'Enhanced skills in designing mobile financial applications.',
         ],
         feedback: false,
         links: {

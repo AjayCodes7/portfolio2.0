@@ -9,7 +9,7 @@ export const siteConfig = {
         twitter: 'https://x.com/iamajayx',
         github: 'https://github.com/ajaycodes7',
         githubProfile: 'https://github.com/ajaycodes7',
-        resume: 'https://drive.google.com/file/d/1B5lD4cHAdoz2xKbLg0EeOZEVTurIN7qt/view?usp=sharing',
+        resume: 'https://drive.google.com/file/d/1N3Bwhmk-64JFvicIoMTNZ8RtEgt5lqW4/view?usp=sharing',
         email: 'mailto:ajaykommana123@gmail.com',
         githubUsername: 'ajayCodes7',
     },
