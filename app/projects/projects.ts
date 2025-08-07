@@ -3,7 +3,45 @@ import microfin from './images/microfin.png'
 import quizzes from './images/quizzes.png'
 import signlang from './images/signlang.png'
 import codpodium from './images/codpodium.png'
+import tempvisualizer from './images/tempvisualizer.png'
 export const projects = [
+    {
+        image: tempvisualizer, // Replace with actual imported image or path
+        title: 'Polygon Climate Visualizer | Interactive Polygon Temperature Visualizer',
+        slug: 'Polygon-Climate-Visualizer',
+        tagline:
+            'A powerful visualization tool that overlays weather data on user-defined geographic polygons.',
+        overview:
+            'ClimateScope enables users to draw polygons on an interactive map and visualize weather data such as temperature over selected date ranges. Built with Next.js, Leaflet, and Tailwind CSS, the app fetches data from Open-Meteo APIs and colorizes polygons based on dynamic temperature thresholds. With features like real-time API caching, time-based data navigation, and a responsive UI, it serves as an insightful tool for climate analysis and educational use.',
+        features: [
+            'Draw custom polygons on an interactive map.',
+            'Fetch weather data (temperature) from Open-Meteo APIs for polygon centroids.',
+            'Apply color-coding rules based on temperature thresholds.',
+            'Navigate through time using a smooth timeline slider.',
+            'Live updates on polygon colors as date or rules change.',
+            'Smart caching to prevent redundant API calls.',
+        ],
+        techStack: ['Next.js', 'React', 'TypeScript', 'Tailwind CSS', 'Leaflet', 'Open-Meteo API'],
+        challenges: [
+            'Accurately computing polygon centroids to fetch representative weather data.',
+            'Avoiding excessive API calls with debounce logic and caching.',
+            'Dynamically applying color thresholds to polygons in real-time.',
+            'Managing interactive map states and re-renders effectively.',
+            'Implementing a responsive UI while dealing with complex map interactions.',
+        ],
+        learnings: [
+            'Deepened understanding of geospatial rendering using Leaflet.',
+            'Mastered performance optimization with debouncing and `useRef` based caching.',
+            'Enhanced skills in TypeScript typing and reusable UI components.',
+            'Explored browser-side performance patterns for dynamic rendering and state management.',
+            'Built a user-friendly interface with advanced interactivity on map layers.',
+        ],
+        feedback: true,
+        links: {
+            live: 'https://polygon-climate-visualizer.vercel.app/',
+            github: 'https://github.com/AjayCodes7/interactive-dashboard',
+        },
+    },
     {
         image: codpodium,
         title: 'CodPodium | Online HTML, CSS & JavaScript Playground',
@@ -99,7 +137,7 @@ export const projects = [
             'Visual dashboards for collection tracking and customer insights.',
             'Integrated notification system for approvals and repayments.',
         ],
-        techStack: ['Flutter', 'PHP', 'Swagger', 'Bitbucket', 'Jira'],
+        techStack: ['Flutter', 'PHP', 'REST API', 'Swagger', 'Bitbucket', 'Jira'],
         challenges: [
             'Transitioning traditional users to a fully digital platform.',
             'Ensuring secure storage and retrieval of sensitive documents.',
@@ -114,8 +152,8 @@ export const projects = [
         ],
         feedback: false,
         links: {
-            live: '',
-            github: '',
+            // live: '',
+            // github: '',
         },
     },
     {

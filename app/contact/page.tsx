@@ -15,7 +15,7 @@ const ContactPage = async () => {
             <div id="tabs" className="flex items-center mt-8 lg:mx-10 md:mx-5">
                 <Tabs defaultValue="form" className="w-full">
                     <TabsList className="max-w-[300px] w-full">
-                        <TabsTrigger value="form">Form</TabsTrigger>
+                        <TabsTrigger value="form">Message</TabsTrigger>
                         <TabsTrigger value="details">Connect</TabsTrigger>
                     </TabsList>
                     <TabsContent value="form" className="mt-4">

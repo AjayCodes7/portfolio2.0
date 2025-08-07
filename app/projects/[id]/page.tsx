@@ -105,7 +105,7 @@ const ProjectDetails = async ({ params }: { params: Promise<{ id: string }> }) =
                     </div>
                 )}
 
-                {project.links && (
+                {project.links && Object.keys(project.links).length > 0 && (
                     <div id="links" className="my-4">
                         <h2 className="text-lg font-semibold">
                             {project.links.live && project.links.github ? 'Links' : 'Link'}

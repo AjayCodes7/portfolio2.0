@@ -1,5 +1,3 @@
-import { IProject } from '@/types'
-
 export const MY_STACK = {
     Languages: [
         {
@@ -77,6 +75,14 @@ export const MY_STACK = {
         {
             name: 'Postman',
             icon: '/logo/postman.png',
+        },
+        {
+            name: 'Tableau',
+            icon: '/logo/tableau.png',
+        },
+        {
+            name: 'VSCode',
+            icon: '/logo/vscode.png',
         },
     ],
 }
