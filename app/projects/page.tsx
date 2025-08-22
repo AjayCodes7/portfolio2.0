@@ -14,7 +14,7 @@ import { projects } from './projects'
 const ProjectsPage = () => {
     return (
         <>
-            <PageHeader className="mt-10 mb-10">
+            <PageHeader className="mb-10">
                 <PageHeaderHeading>Projects</PageHeaderHeading>
                 <PageHeaderHeading className="mt-2 mb-10 text-muted-foreground">
                     Bringing ideas to life through code!
